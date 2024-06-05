@@ -93,22 +93,22 @@
 
        
         socket.on('newMessage', function (message) {
-            displayMessage(message, 'received');
+            displayMessage(message);
         });
 
         // Send a message when the button is clicked
         document.getElementById('SendBtn').addEventListener('click', function () {
             var message = document.getElementById('SoketMessage').value;
             socket.emit('sendMessage', message);
-            displayMessage(message, 'sent');
+            //displayMessage(message);
             document.getElementById('SoketMessage').value = '';
         });
 
-        function displayMessage(message, type) {
+        function displayMessage(message) {
             var messageList = document.getElementById('messageList');
             var messageItem = document.createElement('li');
             messageItem.textContent = message;
-            messageItem.classList.add(type);
+           // messageItem.classList.add(type);
             messageList.appendChild(messageItem);
         }
     </script>
